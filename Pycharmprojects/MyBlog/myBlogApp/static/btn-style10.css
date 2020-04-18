@@ -1,0 +1,68 @@
+
+.btn-profile {
+ position: absolute;
+ top: 40px;
+ left: 87%;
+ background: none;
+ color: #F9F9F9;
+ width: 110px;
+ height: 36px;
+ border: 1px solid #f9f9f9;
+ font-size: 12px;
+ border-radius: 25px;
+ transition: 0.8s;
+ overflow: hidden;
+ transform: translate(-50%, -50%);
+ padding: 8px 10px;
+}
+
+.btn-profile:focus {
+ outline: none;
+}
+
+.btn-profile:before {
+ content: '';
+ display: block;
+ position: absolute;
+ background: #333333;
+ width: 60px;
+ height: 100px;
+ left: 0;
+ top: 0;
+ opacity: 0.5;
+ filter: blur(30px);
+ transform: translateX(-130px) skewX(-15deg);
+
+}
+
+.btn-profile:after {
+ content: '';
+ display: block;
+ position: absolute;
+ background: #333333;
+ width: 30px;
+ height: 100%;
+ left: 30px;
+ top: 0;
+ opacity: 0;
+ filter: blur(30px);
+ transform: translate(-100px) skewX(-15deg);
+}
+
+.btn-profile:hover {
+ background: #ffffff;
+ cursor: pointer;
+
+}
+
+.btn-profile:hover:before {
+ transform: translateX(300px) skewX(-15deg);
+ opacity: 0.6;
+ transition: 1.5s;
+}
+
+.btn-profile:hover:after {
+ transform: translateX(300px) skewX(-15deg);
+ opacity: 1;
+ transition: 1.5s;
+}

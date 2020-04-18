@@ -1,0 +1,41 @@
+
+    {% if num > 0 %}
+        {% for follower in followers %}
+                <div class="content-section border-w-0">
+                    <div class="media">
+                    <a class="mr-1" href="{{ url_for('user_posts', username=follower.username) }}">
+                        <img class="rounded-circle article-img" src="{{ url_for('static', filename='profile/' + follower.image_file) }}"></a>
+                        <div class="media-body">
+                            <a class="mr-1" style="text-decoration: none;" href="{{ url_for('user_posts', username=follower.username) }}">
+                                <h3 class="account-heading ">{{ follower.username }}</h3></a>
+                            {% if follower.about_me %}<p class="followers-mr-control">{{ follower.about_me }}</p>{% endif %}
+                        </div>
+                    </div>
+                </div>
+        {% endfor %}
+    {% else %}
+        <div class="content-section">
+            <div class="media">
+                <div class="media-body">
+                    <h5>
+                        You don’t have any followers yet
+                    </h5>
+                    <p>
+                        When someone follows you, you’ll see them here
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    {% endif %}
+    <script>
+        $(document).ready(function(){
+            $("#myTab a").click(function(){
+            $(this).tab('show');
+          })
+            (window.location.href === 'http://127.0.0.1:5000/user/xiaolin/followers')
+            $('#home').removeClass('active')
+            $('#profile').addClass('active')
+        });
+    </script>
+

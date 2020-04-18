@@ -1,0 +1,37 @@
+<article class="media content-section btm-border-width-0 new-post-background">
+  <img class="rounded-circle article-img" src="{{ url_for('static', filename = 'profile/' + comment.c_author.image_file) }}">
+  <div class="media-body">
+    <div class="article-metadata">
+         <a class="mr-2" href="{{ url_for('user_posts', username=comment.c_author.username) }}">{{ comment.c_author.username }}</a>
+         <small>{{ comment.timestamp.strftime('%Y-%m-%d %T') }}</small>
+    </div>
+     <p class="article-content testfor">{{ comment.text }}</p>
+    </div>
+ </article>
+
+<article class="media content-section btm-margin-control-0 top-border-width-0 new-post-background">
+  <img class="rounded-circle article-img" src="{{ url_for('static', filename = 'profile/' + current_user.image_file) }}">
+    <div class="media-body">
+            <form class="ReplyForm" method="POST" action="{{ url_for('addReply',post_id = post.id, parent_id = comment.id) }}">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group btm-mr-addcomment-0">
+                <div class="form-group">
+
+                    {% if form.content.errors %}
+                        {{ form.content(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.content.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.content(class="form-control form-control-lg comment-border-control form-control-change new-post-form-color-control", rows='4',placeholder='Reply', id='ReplyContent') }}
+                    {% endif %}
+                </div>
+            </fieldset>
+            <div class="form-group comment-btn-position-control">
+                 {{ form.submit(class="new-post-button")}}
+            </div>
+        </form>
+    </div>
+ </article>

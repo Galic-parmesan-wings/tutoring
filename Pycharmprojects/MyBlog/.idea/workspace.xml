@@ -1,0 +1,583 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a07907c9-5c08-4f5c-a276-744599407feb" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Flask Main" />
+        <option value="SCSS File" />
+        <option value="JavaScript File" />
+        <option value="package.json" />
+        <option value="CSS File" />
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="GotoFileConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="ActionScript" />
+      <filtered-out-file-type name="Angular2Html" />
+      <filtered-out-file-type name="Angular2Svg" />
+      <filtered-out-file-type name="AspectJ" />
+      <filtered-out-file-type name="BuildoutCfg" />
+      <filtered-out-file-type name="C#" />
+      <filtered-out-file-type name="C++" />
+      <filtered-out-file-type name="Chameleon" />
+      <filtered-out-file-type name="CoffeeScript" />
+      <filtered-out-file-type name="Cookie storage file" />
+      <filtered-out-file-type name="CSS" />
+      <filtered-out-file-type name="Cucumber" />
+      <filtered-out-file-type name="Cython" />
+      <filtered-out-file-type name="Dictionary" />
+      <filtered-out-file-type name="Dockerfile" />
+      <filtered-out-file-type name="DTD" />
+      <filtered-out-file-type name="ECMAScript 6" />
+      <filtered-out-file-type name="EditorConfig" />
+      <filtered-out-file-type name="Erlang" />
+      <filtered-out-file-type name="Flow" />
+      <filtered-out-file-type name="GitExclude file" />
+      <filtered-out-file-type name="GitIgnore file" />
+      <filtered-out-file-type name="Haml" />
+      <filtered-out-file-type name="Haskell" />
+      <filtered-out-file-type name="HgIgnore file" />
+      <filtered-out-file-type name="HTTP Request" />
+      <filtered-out-file-type name="IDEA_MODULE" />
+      <filtered-out-file-type name="IDEA_PROJECT" />
+      <filtered-out-file-type name="IDEA_WORKSPACE" />
+      <filtered-out-file-type name="IDL" />
+      <filtered-out-file-type name="IgnoreLang file" />
+      <filtered-out-file-type name="Ini" />
+      <filtered-out-file-type name="JavaFX" />
+      <filtered-out-file-type name="JavaScript" />
+      <filtered-out-file-type name="Jest Snapshot" />
+      <filtered-out-file-type name="Jinja2" />
+      <filtered-out-file-type name="JQL" />
+      <filtered-out-file-type name="JSCS" />
+      <filtered-out-file-type name="JSHint" />
+      <filtered-out-file-type name="JSON" />
+      <filtered-out-file-type name="JSON5" />
+      <filtered-out-file-type name="JSP" />
+      <filtered-out-file-type name="JSX Harmony" />
+      <filtered-out-file-type name="Jupyter" />
+      <filtered-out-file-type name="Less" />
+      <filtered-out-file-type name="Literate CoffeeScript" />
+      <filtered-out-file-type name="Locale" />
+      <filtered-out-file-type name="Mako" />
+      <filtered-out-file-type name="Markdown" />
+      <filtered-out-file-type name="PATCH" />
+      <filtered-out-file-type name="Perl" />
+      <filtered-out-file-type name="PHP" />
+      <filtered-out-file-type name="PLAIN_TEXT" />
+      <filtered-out-file-type name="Properties" />
+      <filtered-out-file-type name="Puppet" />
+      <filtered-out-file-type name="Python" />
+      <filtered-out-file-type name="PythonStub" />
+      <filtered-out-file-type name="Qt UI file" />
+      <filtered-out-file-type name="RegExp" />
+      <filtered-out-file-type name="ReST" />
+      <filtered-out-file-type name="RNG Compact" />
+      <filtered-out-file-type name="Sass" />
+      <filtered-out-file-type name="Scratch" />
+      <filtered-out-file-type name="SCSS" />
+      <filtered-out-file-type name="Shell Script" />
+      <filtered-out-file-type name="SourceMap" />
+      <filtered-out-file-type name="SQL" />
+      <filtered-out-file-type name="Stylus" />
+      <filtered-out-file-type name="SVG" />
+      <filtered-out-file-type name="textmate" />
+      <filtered-out-file-type name="tsconfig" />
+      <filtered-out-file-type name="TypeScript" />
+      <filtered-out-file-type name="TypeScript JSX" />
+      <filtered-out-file-type name="Web2Py" />
+      <filtered-out-file-type name="XHTML" />
+      <filtered-out-file-type name="XML" />
+      <filtered-out-file-type name="YAML" />
+      <filtered-out-file-type name="yarn.lock" />
+      <filtered-out-file-type name="Angular Metadata JSON" />
+      <filtered-out-file-type name="ARCHIVE" />
+      <filtered-out-file-type name="Database Element" />
+      <filtered-out-file-type name="DATASOURCE_STORAGE" />
+      <filtered-out-file-type name="GithubPullRequest" />
+      <filtered-out-file-type name="GraphView" />
+      <filtered-out-file-type name="H2 Database" />
+      <filtered-out-file-type name="Image" />
+      <filtered-out-file-type name="Native" />
+      <filtered-out-file-type name="ResourceBundle" />
+      <filtered-out-file-type name="SQLite Database" />
+      <filtered-out-file-type name="UML" />
+      <filtered-out-file-type name="UNKNOWN" />
+    </file-type-list>
+  </component>
+  <component name="JsBowerSettings">
+    <node-interpreter value="project" />
+    <bower-package value="" />
+    <bower.json value="" />
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="ProjectId" id="1WUTQ58Iys0WCrFv5vE00bWjgG4" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/myBlogApp/static/icons" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\PycharmProjects\MyBlog\myBlogApp\static\icons" />
+      <recent name="C:\Users\Administrator\PycharmProjects\MyBlog\myBlogApp\static\font-family" />
+      <recent name="C:\Users\Administrator\PycharmProjects\MyBlog\myBlogApp\static\json" />
+      <recent name="C:\Users\Administrator\PycharmProjects\MyBlog\myBlogApp\static" />
+      <recent name="C:\Users\Administrator\PycharmProjects\MyBlog\myBlogApp" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\PycharmProjects\MyBlog\myBlogApp\static\icons" />
+      <recent name="C:\Users\Administrator\PycharmProjects\MyBlog\myBlogApp\static\js" />
+      <recent name="C:\Users\Administrator\PycharmProjects\MyBlog\myBlogApp\static\profile_pics" />
+      <recent name="C:\Users\Administrator\PycharmProjects\MyBlog\myBlogApp\static\pictures" />
+      <recent name="C:\Users\Administrator\PycharmProjects\MyBlog\myBlogApp\static" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.runMyBlog">
+    <configuration name="login.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/MyBlog/myBlogApp/templates/login.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="form" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="MyBlog" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/myBlogApp" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/myBlogApp/form.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="models" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="MyBlog" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/myBlogApp" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/myBlogApp/models.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="runDB" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="MyBlog" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/runDB.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="runMyBlog" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="MyBlog" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/runMyBlog.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="MyBlog" type="Python.FlaskServer">
+      <module name="MyBlog" />
+      <option name="target" value="$PROJECT_DIR$/myBlogApp/__init__.py" />
+      <option name="targetType" value="PATH" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unittests in test.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="MyBlog" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/myBlogApp" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/myBlogApp/test.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.models" />
+        <item itemvalue="Python tests.Unittests in test.py" />
+        <item itemvalue="Python.form" />
+        <item itemvalue="Python.runDB" />
+        <item itemvalue="JavaScript Debug.login.html" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SearchEverywhereConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="TopHitSEContributor" />
+      <filtered-out-file-type name="RecentFilesSEContributor" />
+      <filtered-out-file-type name="ClassSearchEverywhereContributor" />
+      <filtered-out-file-type name="SymbolSearchEverywhereContributor" />
+      <filtered-out-file-type name="RunConfigurationsSEContributor" />
+      <filtered-out-file-type name="ActionSearchEverywhereContributor" />
+      <filtered-out-file-type name="YAMLKeysSearchEverywhereContributor" />
+    </file-type-list>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a07907c9-5c08-4f5c-a276-744599407feb" name="Default Changelist" comment="" />
+      <created>1579203154180</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1579203154180</updated>
+      <workItem from="1579203169421" duration="5733000" />
+      <workItem from="1580151843882" duration="19037000" />
+      <workItem from="1580435929930" duration="4860000" />
+      <workItem from="1580501190102" duration="13172000" />
+      <workItem from="1580514456078" duration="8863000" />
+      <workItem from="1580523376093" duration="401000" />
+      <workItem from="1580523786461" duration="197000" />
+      <workItem from="1580523992178" duration="234000" />
+      <workItem from="1580524235379" duration="1300000" />
+      <workItem from="1580526391213" duration="2188000" />
+      <workItem from="1580717389324" duration="683000" />
+      <workItem from="1580758245168" duration="7305000" />
+      <workItem from="1580766078280" duration="22554000" />
+      <workItem from="1580840636061" duration="26834000" />
+      <workItem from="1581020148291" duration="9191000" />
+      <workItem from="1581043672682" duration="17638000" />
+      <workItem from="1581099326133" duration="3183000" />
+      <workItem from="1581108441768" duration="16681000" />
+      <workItem from="1581148656822" duration="1076000" />
+      <workItem from="1581360900636" duration="28747000" />
+      <workItem from="1581531221191" duration="9840000" />
+      <workItem from="1581547889752" duration="14185000" />
+      <workItem from="1581901361515" duration="10110000" />
+      <workItem from="1581912886169" duration="2338000" />
+      <workItem from="1582151763301" duration="14912000" />
+      <workItem from="1582248430155" duration="3994000" />
+      <workItem from="1582252438826" duration="5363000" />
+      <workItem from="1582310918516" duration="5994000" />
+      <workItem from="1582487226641" duration="706000" />
+      <workItem from="1582574162863" duration="3969000" />
+      <workItem from="1582578372524" duration="22118000" />
+      <workItem from="1582741869630" duration="9030000" />
+      <workItem from="1582754909101" duration="1687000" />
+      <workItem from="1582758367757" duration="1705000" />
+      <workItem from="1582760612597" duration="833000" />
+      <workItem from="1582762531992" duration="1795000" />
+      <workItem from="1582764342617" duration="1784000" />
+      <workItem from="1582766150730" duration="1674000" />
+      <workItem from="1582767993797" duration="1794000" />
+      <workItem from="1582769801772" duration="1795000" />
+      <workItem from="1582771608791" duration="1762000" />
+      <workItem from="1582774449733" duration="1790000" />
+      <workItem from="1582776255739" duration="1797000" />
+      <workItem from="1582778068651" duration="1570000" />
+      <workItem from="1582780263913" duration="1118000" />
+      <workItem from="1582788187807" duration="617000" />
+      <workItem from="1582917588172" duration="61728000" />
+      <workItem from="1583020066720" duration="14974000" />
+      <workItem from="1583136423789" duration="1052000" />
+      <workItem from="1583190409081" duration="30464000" />
+      <workItem from="1583250373046" duration="1742000" />
+      <workItem from="1583348970227" duration="33287000" />
+      <workItem from="1583392834979" duration="397000" />
+      <workItem from="1583393241322" duration="406000" />
+      <workItem from="1583393655985" duration="5198000" />
+      <workItem from="1583520926583" duration="45023000" />
+      <workItem from="1583570818376" duration="14606000" />
+      <workItem from="1583585958199" duration="15007000" />
+      <workItem from="1583622090843" duration="16194000" />
+      <workItem from="1583716417987" duration="835000" />
+      <workItem from="1583727700952" duration="22129000" />
+      <workItem from="1583751743025" duration="1163000" />
+      <workItem from="1583753010069" duration="4854000" />
+      <workItem from="1583757883479" duration="1898000" />
+      <workItem from="1583760482211" duration="1865000" />
+      <workItem from="1583793051455" duration="26829000" />
+      <workItem from="1583878095021" duration="29237000" />
+      <workItem from="1583965711231" duration="24431000" />
+      <workItem from="1584042180665" duration="6629000" />
+      <workItem from="1584048824988" duration="23101000" />
+      <workItem from="1584126901548" duration="20209000" />
+      <workItem from="1584213746820" duration="37555000" />
+      <workItem from="1584346630013" duration="681000" />
+      <workItem from="1584490648084" duration="602000" />
+      <workItem from="1584562856875" duration="35676000" />
+      <workItem from="1584608670259" duration="11000" />
+      <workItem from="1584642962025" duration="22039000" />
+      <workItem from="1584731490174" duration="31503000" />
+      <workItem from="1584826348120" duration="23556000" />
+      <workItem from="1584854550698" duration="3711000" />
+      <workItem from="1584869326406" duration="657000" />
+      <workItem from="1585334762202" duration="299000" />
+      <workItem from="1585335077790" duration="27000" />
+      <workItem from="1585335114743" duration="884000" />
+      <workItem from="1585336010654" duration="232000" />
+      <workItem from="1585336254611" duration="24000" />
+      <workItem from="1585336289205" duration="138000" />
+      <workItem from="1585336437775" duration="172000" />
+      <workItem from="1585336618417" duration="278000" />
+      <workItem from="1585336906577" duration="5000" />
+      <workItem from="1585336923257" duration="1406000" />
+      <workItem from="1585338340863" duration="63000" />
+      <workItem from="1585338412242" duration="46000" />
+      <workItem from="1585338467691" duration="126000" />
+      <workItem from="1585338602270" duration="16260000" />
+      <workItem from="1585377374950" duration="4512000" />
+      <workItem from="1585431566199" duration="22378000" />
+      <workItem from="1585596608597" duration="36314000" />
+      <workItem from="1585680436260" duration="44679000" />
+      <workItem from="1585765372390" duration="5768000" />
+      <workItem from="1585771739858" duration="423000" />
+      <workItem from="1585853271488" duration="31132000" />
+      <workItem from="1585943195539" duration="21631000" />
+      <workItem from="1586034452790" duration="4646000" />
+      <workItem from="1586047519127" duration="13041000" />
+      <workItem from="1586116052244" duration="17810000" />
+      <workItem from="1586198721089" duration="3077000" />
+      <workItem from="1586370899769" duration="25603000" />
+      <workItem from="1586457379858" duration="31216000" />
+      <workItem from="1586540912728" duration="15315000" />
+      <workItem from="1586821904825" duration="1215000" />
+      <workItem from="1586915404921" duration="2089000" />
+      <workItem from="1587059512536" duration="3017000" />
+      <workItem from="1587166782124" duration="3284000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="452" y="96" key="#Inspections" timestamp="1585704417582">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="452" y="96" key="#Inspections/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1585704417582" />
+    <state x="522" y="167" width="816" height="733" key="#Intentions" timestamp="1580515228685">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="522" y="167" width="816" height="733" key="#Intentions/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1580515228685" />
+    <state x="668" y="177" key="#Language_Injections" timestamp="1580505285697">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="668" y="177" key="#Language_Injections/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1580505285697" />
+    <state x="667" y="321" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1586411914481">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="667" y="321" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1586411914481" />
+    <state x="690" y="299" key="#com.intellij.ide.scriptingContext.ui.PerFileMappingsDialogWrapper" timestamp="1580513541424">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="299" key="#com.intellij.ide.scriptingContext.ui.PerFileMappingsDialogWrapper/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1580513541424" />
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1585975205758">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1585975205758" />
+    <state x="615" y="295" key="EditFileWatcherDialog" timestamp="1580849913727">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="615" y="295" key="EditFileWatcherDialog/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1580849913727" />
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1580840703323">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1580840703323" />
+    <state width="1834" height="186" key="GridCell.Tab.0.bottom" timestamp="1587168293612">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1834" height="186" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1587168293612" />
+    <state width="1745" height="296" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1580545631495" />
+    <state width="1834" height="186" key="GridCell.Tab.0.center" timestamp="1587168293611">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1834" height="186" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1587168293611" />
+    <state width="1745" height="296" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1580545631495" />
+    <state width="1834" height="186" key="GridCell.Tab.0.left" timestamp="1587168293611">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1834" height="186" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1587168293611" />
+    <state width="1745" height="296" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1580545631495" />
+    <state width="1834" height="186" key="GridCell.Tab.0.right" timestamp="1587168293612">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1834" height="186" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1587168293612" />
+    <state width="1745" height="296" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1580545631495" />
+    <state width="1868" height="324" key="GridCell.Tab.1.bottom" timestamp="1586060572870">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1868" height="324" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1586060572870" />
+    <state width="1868" height="324" key="GridCell.Tab.1.center" timestamp="1586060572870">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1868" height="324" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1586060572870" />
+    <state width="1868" height="324" key="GridCell.Tab.1.left" timestamp="1586060572870">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1868" height="324" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1586060572870" />
+    <state width="1868" height="324" key="GridCell.Tab.1.right" timestamp="1586060572870">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1868" height="324" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1586060572870" />
+    <state x="526" y="0" width="1230" height="1040" key="SettingsEditor" timestamp="1586034681099">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="526" y="0" width="1230" height="1040" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1586034681099" />
+    <state x="2381" y="157" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1580526805784" />
+    <state width="254" height="198" key="ShowFilterAction_Filter_Popup" timestamp="1583574473639">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="254" height="198" key="ShowFilterAction_Filter_Popup/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1583574473639" />
+    <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1582603237993">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="968" height="528" key="XDebugger.FullValuePopup/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1582603237993" />
+    <state x="603" y="134" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1581057882191">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="603" y="134" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1581057882191" />
+    <state x="1889" y="16" width="1809" height="1009" key="dock-window-1" timestamp="1586116062508">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="1889" y="16" width="1809" height="1009" key="dock-window-1/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1586116062508" />
+    <state x="2339" y="0" width="1442" height="865" key="dock-window-2" timestamp="1585765381501">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2339" y="0" width="1442" height="865" key="dock-window-2/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1585765381501" />
+    <state x="1990" y="255" width="1442" height="604" key="dock-window-3" timestamp="1585765381501">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="1990" y="255" width="1442" height="604" key="dock-window-3/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1585765381501" />
+    <state x="567" y="64" width="786" height="912" key="find.popup" timestamp="1583394563457">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="567" y="64" width="786" height="912" key="find.popup/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1583394563457" />
+    <state x="739" y="239" width="672" height="731" key="search.everywhere.popup" timestamp="1586201650134">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="739" y="239" width="672" height="731" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1586201650134" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="schema" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/MyBlog$runDB.coverage" NAME="runDB Coverage Results" MODIFIED="1580758255613" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/MyBlog$MyBlog.coverage" NAME="MyBlog Coverage Results" MODIFIED="1580159930930" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/MyBlog$Flask__myBlogApp___init___py_.coverage" NAME="Flask (myBlogApp/__init__.py) Coverage Results" MODIFIED="1580164782097" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/MyBlog$Unittests_in_test_py.coverage" NAME="Unittests in test.py Coverage Results" MODIFIED="1582603146705" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/myBlogApp" />
+    <SUITE FILE_PATH="coverage/MyBlog$models.coverage" NAME="models Coverage Results" MODIFIED="1582603406161" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/myBlogApp" />
+    <SUITE FILE_PATH="coverage/MyBlog$runMyBlog.coverage" NAME="runMyBlog Coverage Results" MODIFIED="1587168293602" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/MyBlog$form.coverage" NAME="form Coverage Results" MODIFIED="1581552263632" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/myBlogApp" />
+  </component>
+</project>

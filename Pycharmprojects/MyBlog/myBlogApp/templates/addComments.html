@@ -1,0 +1,41 @@
+<article class="media content-section btm-border-width-0 new-post-background ">
+  <img class="rounded-circle article-img" src="{{ url_for('static', filename = 'profile/' + post.author.image_file) }}">
+  <div class="media-body">
+    <div class="article-metadata">
+         <a class="mr-2" href="{{ url_for('user_posts', username=post.author.username) }}">{{ post.author.username }}</a>
+    </div>
+     <h2 class="article-title">{{ post.title }}</h2>
+     <p class="article-content">{{ post.body }}</p>
+    {% if post.post_picture %}
+        <img class="post-pic-margin immune-click post-pic" src=" {{ url_for('static', filename = 'post_pictures/' + post.post_picture) }}" alt="profile image">
+        <a class="post-pic-display-link" style="display: none" href="{{ url_for('post_picture_display', post_id = post.id) }}"></a>
+    {% endif %}
+    </div>
+ </article>
+
+<article class="media content-section btm-margin-control-0 top-border-width-0 new-post-background">
+  <img class="rounded-circle article-img" src="{{ url_for('static', filename = 'profile/' + current_user.image_file) }}">
+    <div class="media-body">
+            <form method="POST" action="{{ url_for('addComments',post_id=post.id) }}">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group btm-mr-addcomment-0">
+                <div class="form-group">
+
+                    {% if form.content.errors %}
+                        {{ form.content(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.content.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.content(class="form-control form-control-lg comment-border-control form-control-change new-post-form-color-control", rows='4',placeholder='Comment') }}
+                    {% endif %}
+                </div>
+            </fieldset>
+            <div class="form-group comment-btn-position-control">
+                 {{ form.submit(class="new-post-button")}}
+            </div>
+        </form>
+    </div>
+ </article>

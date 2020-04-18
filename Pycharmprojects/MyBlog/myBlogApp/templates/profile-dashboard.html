@@ -1,0 +1,166 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="content-section box-s-control">
+        <div class="media">
+            <img class="rounded-circle account-img" src="{{ url_for('static', filename='profile/' + user.image_file) }}">
+            <div class="media-body">
+                <div style=" justify-content: space-between; margin-left: 0" class="row">
+                    <h3 class="account-heading heading-margin-control">{{ user.username }}</h3>
+                    {% if user != current_user %}
+                        <a class="envelope-position" href="{{ url_for('send_message', recipient=user.username) }}"><i class="far fa-envelope message-icon-position"></i></a>
+                    {% endif %}
+                   {% if user == current_user %}
+                            <a class="btn btn-profile" id="edit-profile" rel="6" data-toggle="modal" data-target="#exampleModalCenter3" href="{{ url_for('user')}}">Edit profile</a>
+                            {% elif not current_user.is_following(user) %}
+                            <a  class="btn btn-profile" id="f_f" rel="{{ url_for('follow', username=user.username) }}" href="javascript:">Follow</a>
+                            {% else %}
+                            <a  class="btn btn-profile" id="uf_f" rel="{{ url_for('unfollow', username=user.username) }}" href="javascript:">Unfollow</a>
+                            {% endif %}
+                    </div>
+                    {% if user.about_me %}<h6 class="h6-margin-control" id="test6">{{ user.about_me }}</h6>{% endif %}
+                    {% if user.last_seen %}<p class="p-margin-control text-secondary">Last seen on: {{ user.last_seen.strftime('%Y-%m-%d %T') }}</p>{% endif %}
+            </div>
+        </div>
+    </div>
+    <a style="display: none" id="gg" href="{{ url_for('show_follower', username = user.username) }}"> </a>
+    <a style="display: none" id="ggwp" href="{{ url_for('show_following', username = user.username) }}"></a>
+    <ul class="nav nav-tabs tab-border-control " id="myTab" role="tablist">
+      <li class="nav-item equel-width">
+        <a class="nav-link active tab-btn" style="text-align: start" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Posts</a>
+      </li>
+      <li class="nav-item equel-width">
+        <a class="nav-link tab-btn" style="text-align: center" id="profile-tab " data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Followers <span class="badge badge-secondary badge-color-control">{{ user.followers.count() }}</span></a>
+      </li>
+      <li class="nav-item equel-width">
+        <a class="nav-link tab-btn" style="text-align: end" id="contact-tab " data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Following <span class="badge badge-secondary badge-color-control">{{ user.followed.count() }}</span></a>
+      </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active " id="home" role="tabpanel" aria-labelledby="home-tab">
+          {% include 'post_on_profile.html' %}
+      </div>
+      <div class="tab-pane fade " id="profile" role="tabpanel" aria-labelledby="profile-tab">
+
+      </div>
+      <div class="tab-pane fade " id="contact" role="tabpanel" aria-labelledby="contact-tab">
+
+      </div>
+    </div>
+    {% include 'layout3.html' %}
+      <script>
+        $('#edit-profile').on('click',function () {
+          $('#exampleModalCenter3').modal('show').find('.modal-content').load($('#edit-profile').attr('href'));
+        });
+      </script>
+     <script>
+         $(document).ready(function(){
+
+             $('#f_f, #uf_f').click(function(e){
+              e.preventDefault();
+                var targetUrl = $(this).attr('rel');
+             $.ajax({
+                    url: targetUrl,
+                    type: "GET",
+                    success:function(){
+                        window.location.href = '{{ url_for('user_posts', username=user.username) }}';
+                        return false;
+                    },
+                    error:function (){
+                        alert("testing error");
+                    }
+                });
+            });
+         });
+    </script>
+
+    <script>
+        $(document).ready(function(){
+            $('#profile').load($('#gg').attr('href'));
+            $('#contact').load($('#ggwp').attr('href'));
+    });
+    </script>
+    <script>
+        $(function(){
+           $("a[href='#contact']").click( function () {
+
+               $('.iterate-loop').each(function (i) {
+                    $("a[rel = '7']").hide();
+                    $("a[rel = '9']").eq(i).click(function () {
+                        var following_name = $('h4').eq(i).text();
+                        console.log(following_name);
+                        $.ajax({
+                            data : JSON.stringify(following_name),
+                            type : 'POST',
+                            url : '{{ url_for('user_posts', username=user.username) }}',
+                            contentType: 'application/json'
+                        })
+                        .done(function(data) {
+                            console.log(data.error);
+                                if(data.error === true) {
+                                    $("a[rel = '9']").eq(i).hide();
+                                    $("a[rel = '7']").eq(i).show();
+                                }
+                                else{
+                                    $("a[rel = '7']").eq(i).hide();
+                                    $("a[rel = '9']").eq(i).show();
+                                    }
+                                });
+                    });
+                   $("a[rel = '7']").eq(i).click(function () {
+
+                        var following_name = $('h4').eq(i).text();
+                        console.log(following_name + 'follows');
+                        $.ajax({
+                            data : JSON.stringify(following_name),
+                            type : 'POST',
+                            url : '{{ url_for('user_posts', username=user.username) }}',
+                            contentType: 'application/json'
+                        })
+                        .done(function(data) {
+                                if(data.error === true){
+                                    $("a[rel = '9']").eq(i).hide();
+                                    $("a[rel = '7']").eq(i).show();
+                                }
+                                else{
+                                    $("a[rel = '7']").eq(i).hide();
+                                    $("a[rel = '9']").eq(i).show();
+                                    }
+                                });
+                    });
+
+                    });
+               });
+        });
+    </script>
+    <script>
+         $(function(){
+             $('.check-index-for-like-profile').each(function (i) {
+                 $("a.like-link-home").eq(i).click(function(e){
+                  e.preventDefault();
+                  var targetUrl =  $("a.like-link-home").eq(i).attr('rel');
+                  $.ajax({
+                        url: targetUrl,
+                        type: "GET",
+                    }).done(function (data) {
+                        $('.i-unlike').eq(i).text(data.error);
+                        $('a.like-link-home').eq(i).addClass('hide-for-like');
+                        $('a.unlike-link-home').eq(i).removeClass('hide-for-like');
+                    });
+                 });
+                 $("a.unlike-link-home").eq(i).click(function(e){
+                  e.preventDefault();
+                  var targetUrl2 = $('a.unlike-link-home').eq(i).attr('rel');
+                  $.ajax({
+                        url: targetUrl2,
+                        type: "GET",
+                  }).done(function (data) {
+                        $('a.unlike-link-home').eq(i).addClass('hide-for-like');
+                        $('a.like-link-home').eq(i).removeClass('hide-for-like');
+                         $('.i-unlike').eq(i).text(data.name);
+                    });
+                 });
+             });
+         });
+    </script>
+{% endblock %}

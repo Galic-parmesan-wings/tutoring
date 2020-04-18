@@ -1,0 +1,86 @@
+{% for post in posts.items %}
+    <article class="media content-section border-w-0 art-link">
+        <a class="mr-1"  href="{{ url_for('user_posts', username=post.author.username) }}">
+            <img class="rounded-circle article-img" src="{{ url_for('static', filename = 'profile/' + post.author.image_file) }}">
+    </a>
+      <div class="media-body">
+        <div class="article-metadata space-control">
+          <a class="mr-2" style="font-weight: 500" href="{{ url_for('user_posts', username=post.author.username) }}">{{ post.author.username }}</a>
+          <small class=" small-margin-control ">{{ post.timestamp.strftime('%Y-%m-%d %T') }}</small>
+                <div class="dropdown">
+                     <a class="comment-color dropdown-toggle toggle-remove", id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"><i class="fas fa-ellipsis-v immune-click add-padding"></i></a>
+                    <div class="dropdown-style dropdown-menu dropdown-menu-right DD-control" aria-labelledby="navbarDropdownMenuLink2">
+                        {% if post.author == current_user %}
+                        <a class="dropdown-item dropdown-padding-control immune-click" id="deletelink" data-toggle="modal" data-target="#deleteModal" rel="11" href="{{ url_for('delete_post', post_id = post.id) }}"><i class="far fa-trash-alt i-padding-control"></i>Delete</a>
+                        {% else %}
+                        <a class="dropdown-item dropdown-padding-control immune-click" href="#"><i class="fas fa-ban i-padding-control"></i>Block</a>
+                        {% endif %}
+                    </div>
+                </div>
+        </div>
+        <a class="post-link" href="{{ url_for('post', post_id = post.id) }}" style="display: none"></a>
+        <h5><a class="article-title" href="{{ url_for('post', post_id = post.id) }}">{{ post.title }}</a></h5>
+        <p class="article-content">{{ post.body }}</p>
+        {% if post.post_picture %}
+            <img class="post-pic-margin immune-click post-pic" src=" {{ url_for('static', filename = 'post_pictures/' + post.post_picture) }}" alt="profile image">
+            <a class="post-pic-display-link" style="display: none"  href="{{ url_for('post_picture_display', post_id = post.id) }}"></a>
+        {% endif %}
+         <div class="article-metadata pm-control check-index-for-like-profile space-control" >
+            <a class="comment-color", id="addComments" data-toggle="modal" data-target="#exampleModalCenter2" rel="6"  href="{{ url_for('addComments', post_id= post.id) }}"><i class="far fa-comment i-margin-control immune-click">{{ post.comment_num }}</i></a>
+            {% if current_user.has_liked_post(post)%}
+                <a class="comment-color like-link-home hide-for-like ", id="l_l" rel="{{ url_for('like', post_id = post.id) }}" href="javascript:"><i class="far fa-heart i-margin-control i-unlike immune-click">{{post.likes.count()}}</i></a>
+                <a class="comment-color unlike-link-home", id="ul_l" rel="{{ url_for('unlike', post_id = post.id) }}" href="javascript:"><i class="fas fa-heart i-margin-control i-color-change i-like immune-click">{{post.likes.count()}}</i></a>
+            {% else %}
+                <a class="comment-color unlike-link-home hide-for-like ", id="ul_l" rel="{{ url_for('unlike', post_id = post.id) }}" href="javascript:"><i class="fas fa-heart i-margin-control i-color-change i-unlike immune-click">{{post.likes.count()}}</i></a>
+                <a class="comment-color like-link-home ", id="l_l" rel="{{ url_for('like', post_id = post.id) }}" href="javascript:"><i class="far fa-heart i-margin-control i-like immune-click">{{post.likes.count()}}</i></a>
+            {% endif %}
+            <a class="comment-color",   href="#"><i class="far fa-bookmark immune-click"></i></a>
+         </div>
+      </div>
+    </article>
+    {% include 'layout-post-picture-display.html' %}
+    {% include 'layout3.html' %}
+    {% include 'layout-for-comments.html' %}
+    {% include 'layout-for-reply.html' %}
+    {% include 'layout-delete.html' %}
+    <script>
+        $(function () {
+            $('.dropdown-toggle').dropdown();
+        });
+    </script>
+    <script>
+        $(function () {
+            $('#update-post-2').on('click',function () {
+              $('#exampleModalCenter4').modal('show').find('.modal-content').load($('#update-post-2').attr('href'));
+            });
+            $('#addComments').on('click',function () {
+              $('#exampleModalCenter2').modal('show').find('.modal-content').load($('#addComments').attr('href'));
+            });
+            $("a[rel='11']").click(function () {
+                $('#deleteModal').modal('show').find('.modal-content').load($("a[rel='11']").attr('href'));
+            });
+        });
+    </script>
+    <script>
+        $(function () {
+            $('.art-link').each(function (i) {
+                $('.post-pic').eq(i).on('click', function () {
+                    $('#displayModal').modal('show').find('.modal-content').load($('.post-pic-display-link').eq(i).attr('href'));
+                });
+            });
+        });
+    </script>
+    <script>
+    $(function () {
+        $('.art-link').each(function (i) {
+            $('.art-link').eq(i).click(function (e) {
+                if ($(e.target).hasClass('immune-click')){
+                     return;
+                }
+                var url = $('.post-link').eq(i).attr('href');
+                window.location.href = url;
+            });
+        });
+    });
+    </script>
+{% endfor %}

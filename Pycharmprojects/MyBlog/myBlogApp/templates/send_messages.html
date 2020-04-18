@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="content-section new-post-background">
+
+        <form method="POST" action="{{ url_for('send_message', recipient=recipient)}}" enctype="multipart/form-data" >
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group" style="margin-bottom: 0; margin-top: 10px;">
+                <legend class="mb-4 legend-style" >{{ legend }}</legend>
+                <div class="form-group">
+                    {{ form.message.label(class="form-control-label label-control new-post-label-color ") }}
+                    {% if form.message.errors %}
+                        {{ form.messagetitle(class="form-control form-control-lg is-invalid new-post-form-color-control") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.message.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.message(class="form-control form-control-lg form-control-change new-post-form-color-control", id="p-title") }}
+                    {% endif %}
+                </div>
+                <div id="new-post-image-preview"></div>
+            </fieldset>
+            <div class="space-control">
+                <a class="post-picture-trigger" href="#"><i class="far fa-images i-style" id="img-upload-icon"></i></a>
+                <div class="emo-btn" id="emo-btn" title="Use the TAB key to insert emoji faster">
+                    <div class="emo-btn-open" id="emo-btn-open"></div>
+                    <div class="emo-btn-close" id="emo-btn-close"></div>
+                </div>
+            </div>
+
+            <div class="form-group" style="display: flex; justify-content: flex-end;">
+                 {{ form.submit(class="new-post-button")}}
+            </div>
+        </form>
+</div>
+{% endblock %}

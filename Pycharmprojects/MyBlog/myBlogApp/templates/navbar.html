@@ -1,0 +1,114 @@
+<nav class="navbar fixed-top navbar-expand-lg scrolling-navbar font-control">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <a class="navbar-brand nav-margin-control logo-style" href="{{ url_for('home') }}"><div class="logo-font glitch-effect" data-text="EDPE">edpe</div> </a>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class=" hover-control link-control padding-control" id="homeLink" href={{ url_for("home")}}>Home</a>
+        </li>
+        <li class="nav-item">
+          <a class=" hover-control link-control padding-control" id="exploreLink" href={{ url_for("explore")}}>Explore</a>
+        </li>
+      </ul>
+      {% if current_user.is_anonymous %}
+          <a class="btn btn-outline-white btn-outline login-button-margin-control js-anchor1"  data-toggle="modal" data-backdrop="false" data-target="#modalForLogin" href="{{ url_for('login')}}">login</a>
+      {% else %}
+        <a href='{{url_for('messages')}}' class="notification">
+          <i class="far fa-bell bell-size"></i>
+                            {% set new_messages = current_user.new_messages() %}
+                            <span id="message_count" class="badge"
+                                  style="visibility: {% if new_messages %}visible
+                                                     {% else %}hidden {% endif %};">
+                                {{ new_messages }}
+                            </span>
+        </a>
+      {% endif %}
+
+        <div>
+        {% if current_user.is_anonymous %}
+            <a class="btn btn-outline-white btn-outline signup-button-margin-control js-anchor2"  data-toggle="modal" data-target="#exampleModalCenter1"  data-backdrop="false" href="{{ url_for('register')}}">Sign Up</a>
+        {% else %}
+            <ul class="navbar-nav" id="nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                      {% if current_user.is_anonymous %}
+                        <img class="rounded-circle avatar" src="{{  url_for('static', filename='profile/default.png' )}}">
+                        {% else %}
+                       <img class="rounded-circle avatar" src="{{  url_for('static', filename='profile/' + current_user.image_file)}}">
+                        {% endif %}
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-left dropdown-style" aria-labelledby="navbarDropdownMenuLink1">
+                        <a class="dropdown-item dropdown-padding-control" href="{{ url_for('user_posts', username=current_user.username) }}"><i class="far fa-user-circle i-padding-control"></i>Profile</a>
+                        <a class="dropdown-item dropdown-padding-control" href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt i-padding-control"></i>Logout</a>
+                    </div>
+                </li>
+             </ul>
+        {% endif %}
+        </div>
+    </div>
+</nav>
+
+{% include 'layout1.html' %}
+{% include 'layout-for-login.html' %}
+{% include'lay-out-for-signup.html' %}
+{% include 'modal-for-login.html' %}
+{% include 'layout-for-password-reset-request.html' %}
+  <script>
+    $('.js-anchor1').on('click',function () {
+      $('#modalForLogin').modal('show').find('.modal-login-model-content').load($(".js-anchor1").attr('href'));
+    });
+    $('.js-anchor2').on('click',function () {
+      $('#exampleModalCenter1').modal('show').find('.modal-content').load($(".js-anchor2").attr('href'));
+    });
+  </script>
+   <script>
+    $(".modal").on("shown.bs.modal", function () {
+        if ($(".modal-backdrop").length > 1) {
+            $(".modal-backdrop").not(':first').remove();
+        }
+    })
+   </script>
+    <script>
+        function set_message_count(n) {
+            $('#message_count').text(n);
+            $('#message_count').css('visibility', n ? 'visible' : 'hidden');
+        }
+    </script>
+    <script>
+        {% if current_user.is_authenticated %}
+        $(function() {
+            var since = 0;
+            setInterval(function() {
+                $.ajax('{{ url_for('notifications') }}?since=' + since).done(
+                    function(notifications) {
+                        for (var i = 0; i < notifications.length; i++) {
+                            if (notifications[i].name === 'unread_message_count')
+                                set_message_count(notifications[i].data);
+                            since = notifications[i].timestamp;
+                        }
+                    }
+                );
+            }, 8000);
+        });
+        {% endif %}
+    </script>
+<script>
+$(function () {
+  'use strict';
+   var c, currentScrollTop = 0,
+       navbar = $('nav');
+
+   $(window).scroll(function () {
+      var a = $(window).scrollTop();
+      var b = navbar.height();
+
+      currentScrollTop = a;
+
+      if (c < currentScrollTop && a > b + b) {
+        navbar.addClass("scrollUp");
+      } else if (c > currentScrollTop && !(a <= b)) {
+        navbar.removeClass("scrollUp");
+      }
+      c = currentScrollTop;
+  });
+});
+</script>

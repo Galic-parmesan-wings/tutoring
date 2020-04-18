@@ -1,0 +1,11 @@
+Metadata-Version: 1.0
+Name: bp
+Version: 0.0.4
+Summary: Binpack implementation for python
+Home-page: https://github.com/binpack/binpack-python
+Author: http://www.liaohuqiu.net
+Author-email: liaohuqiu@gmail.com
+License: MIT License
+Description: UNKNOWN
+Keywords: binpack
+Platform: any

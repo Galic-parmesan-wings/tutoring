@@ -1,0 +1,208 @@
+<div class="row no-gutters gutters-height">
+            <div class="d-none d-md-flex col-md-2 col-lg-4 size-change-small bg-image"></div>
+            <div class="col-md-8 col-lg-8 white-background size-change-big">
+                  <form action="{{ url_for('register') }}" method="post" class="register-form" id="resgistrationForm" >
+                      <h3 class="login-heading mb-4 heading-margin-change new-location">Sign Up</h3>
+                        {{ form.hidden_tag() }}
+                    <div class="form-label-group registration-margin-bottom">
+                        {{ form.username(class="form-control form-control-change", id="inputUsername", type= "text", placeholder="Username*")}}
+                        {{ form.username.label(for="inputUsername") }}
+
+                    </div>
+                    <div class="form-label-group registration-margin-bottom">
+                        {{ form.email(class="form-control form-control-change", id="inputEmail", type= "email", placeholder="Email*")}}
+                        {{ form.email.label(for="inputEmail") }}
+                    </div>
+
+                    <div class="form-label-group registration-margin-bottom">
+                        {{ form.password(class="form-control form-control-change", id="inputPassword", type= "password", placeholder="Password*")}}
+                        {{ form.password.label(for="inputPassword") }}
+                    </div>
+                    <div class="form-label-group registration-margin-bottom">
+                        {{ form.password2(class="form-control form-control-change", id="inputPassword2", type= "password",placeholder="Confirm Password*")}}
+                        {{ form.password2.label(for="inputPassword2") }}
+                    </div>
+                    <div>
+                        <button class="btn login-btn" id="submit" name="submit" style="margin-top: 15px;" type="submit"><span class="btnValue">Register</span><div class="lds-ellipsis" style="display: none"><div></div><div></div><div></div><div></div></div></button>
+                    </div>
+                      <p class="text-left log-margin-control">Already have an account? <a class="small" data-toggle="modal" data-target="#layoutForLogin" data-backdrop="false" id="directLogin" rel='99' href={{ url_for('login') }}>Log In</a></p>
+                  </form>
+                </div>
+              </div>
+  <script>
+    $(function () {
+        $("a[rel='99']").on('click', function () {
+            $('.ModalClose').click();
+          $("#layoutForSignUp").modal("hide");
+          $('#exampleModalCenter1').modal("hide");
+          $("body").removeClass("modal-open");
+          $('.modal-backdrop').remove();
+            $('#layoutForLogin').modal('show').find('.login-model-content').load($(".js-anchor1").attr('href'));
+        });
+    });
+   </script>
+   <script>
+    $(".modal").on("shown.bs.modal", function () {
+        if ($(".modal-backdrop").length > 1) {
+            $(".modal-backdrop").not(':first').remove();
+        }
+    })
+   </script>
+   <script>
+       $(function () {
+           $('form').on('submit', function (event) {
+               event.preventDefault();
+               var form_data = new FormData($('#resgistrationForm')[0]);
+               var objArr = [];
+               objArr.push({
+                   rname: $('#inputUsername').val(),
+                   remail: $('#inputEmail').val(),
+                   rpassword: $('#inputPassword').val(),
+                   rpassword2:$('#inputPassword2').val()
+               });
+               form_data.append('objArr', JSON.stringify(objArr));
+               for (var value of form_data.values()) {
+                   console.log(value)
+               }
+               $.ajax({
+                   type: 'POST',
+                   url: '/register',
+                   data: form_data,
+                   contentType: false,
+                   processData: false,
+                   success: function (data) {
+                       if(data.name) {
+                           setTimeout(function () {
+                               window.location.href = '/home'
+                           }, 1000)
+                       }
+                   },
+               });
+           });
+       });
+   </script>
+<script>
+        $(function () {
+            $.validator.addMethod('EmailExist', function(value, element) {
+                var obj = {
+                    email: $('#inputEmail').val().replace(/\s/g, "")
+                };
+                var data_json = JSON.stringify(obj);
+                var isSuccess = true;
+                $.ajax({
+                    url: "/validateEmail",
+                    type: "POST",
+                    data: data_json,
+                    dataType: "json",
+                    async: false,
+                    contentType: "application/json",
+                    success: function(data, textStatus, jqXHR) {
+                        console.log(data);
+                            if (data === false) {
+                                isSuccess = false;
+                            }
+                    }
+                });
+                console.log(isSuccess);
+                return isSuccess;
+            }, "Email Address already exists.");
+
+            $.validator.addMethod('UserNameExist', function(value, element) {
+                var obj = {
+                    username: $('#inputUsername').val().replace(/\s/g, "")
+
+                };
+                var data_json = JSON.stringify(obj);
+                var isSuccess = true;
+                $.ajax({
+                    url: "/validateUsername",
+                    type: "POST",
+                    data: data_json,
+                    dataType: "json",
+                    async: false,
+                    contentType: "application/json",
+                    success: function(data, textStatus, jqXHR) {
+                            if (data === false) {
+                                isSuccess = false;
+                            }
+                    }
+                });
+                return isSuccess;
+            }, "UserName already exists.");
+			$( "#resgistrationForm" ).validate( {
+				rules: {
+					username: {
+						required: true,
+						minlength: 4,
+                        maxlength: 15,
+                        UserNameExist: true,
+					},
+					password: {
+						required: true,
+                        maxlength: 15,
+						minlength: 4,
+					},
+					password2: {
+						required: true,
+						minlength: 4,
+						equalTo: "#inputPassword"
+					},
+					email: {
+						required: true,
+						email: true,
+                        EmailExist:true,
+					},
+				},
+				messages: {
+					username: {
+						required: "Please enter a username",
+						minlength: "Username must be at least 4 characters longs",
+                        maxlength: "Username must be at most 15 characters longs",
+                        UserNameExist: "The username has been taken"
+					},
+					password: {
+						required: "Please enter a password",
+						minlength: "Password must be at least 4 characters longs",
+                        maxlength:  "Password must be at most 15 characters longs",
+					},
+					password2: {
+						required: "Please confirm password",
+						minlength: "Confirm password must be at least 4 characters longs",
+						equalTo: "Password does not match"
+					},
+                    email:{
+                        EmailExist: "The Email Address has been taken",
+					    email:  "Please Enter a valid Email address",
+                    },
+				},
+				errorElement: "em",
+				errorPlacement: function ( error, element ) {
+					error.addClass( "invalid-feedback" );
+
+					if ( element.prop( "type" ) === "checkbox" ) {
+						error.insertAfter( element.next( "label" ) );
+					} else {
+						error.insertAfter( element );
+					}
+				},
+				highlight: function ( element, errorClass, validClass ) {
+					$( element ).addClass( "is-invalid" ).removeClass( "is-valid" );
+				},
+				unhighlight: function (element, errorClass, validClass) {
+					$( element ).addClass( "is-valid" ).removeClass( "is-invalid" );
+				}
+			} );
+		} );
+	</script>
+  <script>
+      $(function () {
+          $('form').on('submit',function (){
+            $('.btnValue').hide();
+            $('.lds-ellipsis').show();
+            $('.lds-ellipsis').delay(900).fadeOut('slow', function () {
+                $('.btnValue').fadeIn('slow');
+            });
+          });
+      })
+  </script>
+

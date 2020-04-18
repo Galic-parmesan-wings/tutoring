@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% if posts.count() == 0 %}
+    <article class="media content-section border-width-control box-s-control post-display">
+      <div class="media-body" style="padding-bottom: 500px">
+          <p style="margin-top:10px">Sorry, We couldn't find any more results for '{{ what_to_search }}'.</p>
+      </div>
+    </article>
+    {% else %}
+        {% for post in posts %}
+            <article class="media content-section border-width-control index-check home-index-check art-link" >
+                <a class="mr-1"  href="{{ url_for('user_posts', username=post.author.username) }}">
+                    <img class="rounded-circle article-img" src="{{ url_for('static', filename = 'profile/' + post.author.image_file) }}">
+                </a>
+                <div class="media-body">
+                    <div class="article-metadata space-control">
+                        <a class="mr-2" style="font-weight: 500;" href="{{ url_for('user_posts', username=post.author.username) }}">{{ post.author.username }}</a>
+                        <small class=" small-margin-control">{{ post.timestamp.strftime('%Y-%m-%d %T') }}</small>
+                        <div class="dropdown">
+                             <a class="comment-color dropdown-toggle toggle-remove", id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"><i class="fas fa-ellipsis-v immune-click add-padding"></i></a>
+                            <div class="dropdown-menu dropdown-menu-right DD-control" aria-labelledby="navbarDropdownMenuLink2">
+                                {% if post.author == current_user %}
+                                <a class="dropdown-item dropdown-padding-control immune-click" id="deletelink" data-toggle="modal" data-target="#deleteModal" rel="11" href="{{ url_for('delete_post', post_id = post.id) }}"><i class="far fa-trash-alt i-padding-control immune-click"></i>Delete</a>
+                                {% else %}
+                                <a class="dropdown-item dropdown-padding-control immune-click" href="#"><i class="fas fa-ban i-padding-control immune-click"></i>Block</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <a class="post-link" href="{{ url_for('post', post_id = post.id) }}" style="display: none"></a>
+                    <h5>{{ post.title }}</h5>
+                    <span class="article-content">{{ post.body }}</span>
+                    <div class="post-picture-container immune-click">
+                    {% if post.post_picture %}
+                        <img class="post-pic-margin immune-click post-pic" src=" {{ url_for('static', filename = 'post_pictures/' + post.post_picture) }}" alt="profile image">
+                        <a class="post-pic-display-link" style="display: none" href="{{ url_for('post_picture_display', post_id = post.id) }}"></a>
+                    {% endif %}
+                    </div>
+                    <div class="article-metadata pm-control check-index-for-like space-control">
+                    <a class="comment-color" id="addComments-home" data-toggle="modal" data-target="#layoutforcomment" rel="6"  href="{{ url_for('addComments', post_id= post.id) }}"><i class="far fa-comment i-margin-control immune-click">{{ post.comment_num }}</i></a>
+                    {% if current_user.has_liked_post(post)%}
+                        <a class="comment-color like-link-home hide-for-like " id="l_l" rel="{{ url_for('like', post_id = post.id) }}" href="javascript:"><i class="far fa-heart i-margin-control i-unlike immune-click">{{post.likes.count()}}</i></a>
+                        <a class="comment-color unlike-link-home" id="ul_l" rel="{{ url_for('unlike', post_id = post.id) }}" href="javascript:"><i class="fas fa-heart i-margin-control i-color-change i-like immune-click">{{post.likes.count()}}</i></a>
+                    {% else %}
+                        <a class="comment-color unlike-link-home hide-for-like " id="ul_l" rel="{{ url_for('unlike', post_id = post.id) }}" href="javascript:"><i class="fas fa-heart i-margin-control i-color-change i-unlike immune-click">{{post.likes.count()}}</i></a>
+                        <a class="comment-color like-link-home " id="l_l" rel="{{ url_for('like', post_id = post.id) }}" href="javascript:"><i class="far fa-heart i-margin-control i-like immune-click">{{post.likes.count()}}</i></a>
+                    {% endif %}
+                    <a class="comment-color" href="#"><i class="far fa-bookmark immune-click"></i></a>
+                    </div>
+                </div>
+            </article>
+          {% endfor %}
+    {% endif %}
+    {% include 'layout-post-picture-display.html' %}
+    {% include 'layout-for-comments.html' %}
+    {% include 'layout-for-reply.html' %}
+    {% include 'layout-delete.html' %}
+    <script>
+    $(function () {
+        $('.art-link').each(function (i) {
+            $('.art-link').eq(i).click(function (e) {
+                if ($(e.target).hasClass('immune-click')){
+                     return;
+                }
+                var url = $('.post-link').eq(i).attr('href');
+                window.location.href = url;
+            });
+        });
+    });
+    </script>
+    <script>
+    $(function () {
+        $('.home-index-check').each(function (i) {
+            $("a[rel='6']").eq(i).click(function () {
+                $('#layoutforcomment').modal('show').find('.modal-content').load($("a[rel='6']").eq(i).attr('href'));
+            });
+        });
+    });
+    </script>
+    <script>
+        $(function () {
+            $('.home-index-check').each(function (i) {
+                $("a[rel='4']").eq(i).click(function () {
+                    $('#exampleModalCenter4').modal('show').find('.modal-content').load( $("a[rel='4']").eq(i).attr('href'));
+                });
+            });
+        });
+
+    </script>
+    <script>
+        $(function () {
+            $('.home-index-check').each(function (i) {
+                $('.post-pic').eq(i).on('click', function () {
+                    $('#displayModal').modal('show').find('.modal-content').load($('.post-pic-display-link').eq(i).attr('href'));
+                });
+            });
+        });
+    </script>
+    <script>
+        $(function () {
+            $('.home-index-check').each(function (i) {
+                $("a[rel='11']").eq(i).click(function () {
+                    $('#deleteModal').modal('show').find('.modal-content').load($("a[rel='11']").eq(i).attr('href'));
+                });
+            });
+        });
+    </script>
+    <script>
+        $(function () {
+            $('.dropdown-toggle').dropdown();
+        });
+    </script>
+    <script>
+         $(function(){
+             $('.check-index-for-like').each(function (i) {
+                 $("a.like-link-home").eq(i).click(function(e){
+                  e.preventDefault();
+                  var targetUrl =  $("a.like-link-home").eq(i).attr('rel');
+                  $.ajax({
+                        url: targetUrl,
+                        type: "GET",
+                    }).done(function (data) {
+                        $('.i-unlike').eq(i).text(data.error);
+                        $('a.like-link-home').eq(i).addClass('hide-for-like');
+                        $('a.unlike-link-home').eq(i).removeClass('hide-for-like');
+                    });
+                 });
+                 $("a.unlike-link-home").eq(i).click(function(e){
+                  e.preventDefault();
+                  var targetUrl2 = $('a.unlike-link-home').eq(i).attr('rel');
+                  $.ajax({
+                        url: targetUrl2,
+                        type: "GET",
+                  }).done(function (data) {
+                        $('a.unlike-link-home').eq(i).addClass('hide-for-like');
+                        $('a.like-link-home').eq(i).removeClass('hide-for-like');
+                         $('.i-unlike').eq(i).text(data.name);
+                    });
+                 });
+             });
+         });
+    </script>
+{% endblock %}

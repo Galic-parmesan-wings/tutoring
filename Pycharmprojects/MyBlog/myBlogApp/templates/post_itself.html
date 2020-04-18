@@ -1,0 +1,165 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <!-- Post  -->
+    <article class="media content-section box-s-control post-display">
+      <img class="rounded-circle article-img" src="{{ url_for('static', filename = 'profile/' + post.author.image_file) }}">
+      <div class="media-body">
+        <div class="article-metadata space-control" >
+            <a class="mr-2" href="{{ url_for('user_posts', username=post.author.username) }}">{{ post.author.username }}</a>
+            <small class="text-muted small-margin-control">{{ post.timestamp.strftime('%Y-%m-%d %T') }}</small>
+            <div class="dropdown">
+                 <a class="comment-color dropdown-toggle toggle-remove", id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"><i class="fas fa-ellipsis-v"></i></a>
+                <div class="dropdown-style dropdown-menu dropdown-menu-right DD-control" aria-labelledby="navbarDropdownMenuLink2">
+                    {% if post.author == current_user %}
+                    <a class="dropdown-item dropdown-padding-control" data-toggle="modal" data-target="#deleteModal" rel="12" href="{{ url_for('delete_post', post_id = post.id) }}"><i class="far fa-trash-alt i-padding-control"></i>Delete</a>
+                    {% else %}
+                    <a class="dropdown-item dropdown-padding-control" href="#"><i class="fas fa-ban i-padding-control"></i>Block</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+         <h5 class="article-title">{{ post.title }}</h5>
+         <p class="article-content">{{ post.body }}</p>
+        {% if post.post_picture %}
+            <img class="post-pic-margin immune-click post-pic" src=" {{ url_for('static', filename = 'post_pictures/' + post.post_picture) }}" alt="profile image">
+            <a class="post-pic-display-link" style="display: none"  href="{{ url_for('post_picture_display', post_id = post.id) }}"></a>
+        {% endif %}
+        <div class="article-metadata pm-control " style="display: flex; justify-content: space-between">
+            <a class="comment-color" id="addComments" data-toggle="modal" data-target="#layoutforcomment"  href="{{ url_for('addComments', post_id= post.id) }}"><i class="far fa-comment i-margin-control">{{ post.comment_num }}</i></a>
+            {% if current_user.has_liked_post(post)%}
+                <a class="comment-color like-link-home hide-for-like " id="l_l" rel="{{ url_for('like', post_id = post.id) }}" href="javascript:"><i class="far fa-heart i-margin-control i-unlike">{{post.likes.count()}}</i></a>
+                <a class="comment-color unlike-link-home" id="ul_l" rel="{{ url_for('unlike', post_id = post.id) }}" href="javascript:"><i class="fas fa-heart i-margin-control i-color-change i-like">{{post.likes.count()}}</i></a>
+            {% else %}
+                <a class="comment-color unlike-link-home hide-for-like " id="ul_l" rel="{{ url_for('unlike', post_id = post.id) }}" href="javascript:"><i class="fas fa-heart i-margin-control i-color-change i-unlike">{{post.likes.count()}}</i></a>
+                <a class="comment-color like-link-home " id="l_l" rel="{{ url_for('like', post_id = post.id) }}" href="javascript:"><i class="far fa-heart i-margin-control i-like">{{post.likes.count()}}</i></a>
+            {% endif %}
+            <a class="comment-color" href="#"><i class="far fa-bookmark"></i></a>
+        </div>
+      </div>
+     </article>
+      <!--level 0 -->
+     {% for comment in comments %}
+            <article class="media content-section btm-margin-control-0 check-for-post-comment">
+                <a class="mr-1 mchang"  href="{{ url_for('user_posts', username=comment.c_author.username) }}">
+                    <img class="rounded-circle article-img i-size-change" src="{{ url_for('static', filename = 'profile/' + comment.c_author.image_file) }}">
+                </a>
+                <div class="level_num" style="display: none" >
+                        {{ comment.level() }}
+                </div>
+                <div class="media-body">
+                    <div class="article-metadata space-control index-check-for-comments">
+                      <a class="mr-2" style="font-weight: 500;" href="{{ url_for('user_posts', username=comment.c_author.username) }}">{{ comment.c_author.username }}</a>
+                      <small class="text-muted small-margin-control">{{ comment.timestamp.strftime('%Y-%m-%d %T') }}</small>
+                      <div class="dropdown">
+                         <a class="comment-color dropdown-toggle toggle-remove" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"><i class="fas fa-ellipsis-v"></i></a>
+                        <div class="dropdown-style dropdown-menu dropdown-menu-right DD-control" aria-labelledby="navbarDropdownMenuLink2">
+                            {% if post.author == current_user %}
+                            <a class="dropdown-item dropdown-padding-control" id="deletelink" data-toggle="modal" data-target="#deleteModal" rel="13" href="{{ url_for('delete_comment', post_id = post.id, comment_id = comment.id) }}"><i class="far fa-trash-alt i-padding-control"></i>Delete</a>
+                            {% else %}
+                            <a class="dropdown-item dropdown-padding-control" href="#"><i class="fas fa-ban i-padding-control"></i>Block</a>
+                            {% endif %}
+                        </div>
+                      </div>
+                    </div>
+                    {% if comment.level() == 0 %}
+                    <p class="article-content">{{ comment.text }}</p>
+                    {% else %}
+                        <p class="article-content"><span style="color: #428bca">@{{ comment.parent.c_author.username }}:</span> {{ comment.text }}</p>
+                    {% endif %}
+                     <div class="article-metadata check-index-for-reply pw-change text-muted" style="display: flex; justify-content: space-between">
+                        <a class="comment-color" id="addReplies"  data-toggle="modal" data-target="#layoutforreply" rel="8" href="{{ url_for('addReply',post_id = post.id, parent_id = comment.id) }}">Reply</a>
+                     </div>
+                </div>
+            </article>
+      {% endfor %}
+    {% include 'layout-post-picture-display.html' %}
+    {% include 'layout1.html' %}
+    {% include 'layout3.html' %}
+    {% include 'layout-for-comments.html' %}
+    {% include 'layout-for-reply.html' %}
+    {% include 'layout-delete.html' %}
+    <script>
+        $(function () {
+            $('#update-post-1').on('click',function () {
+              $('#exampleModalCenter3').modal('show').find('.modal-content').load($('#update-post-1').attr('href'));
+            });
+            $('#addComments').on('click',function () {
+              $('#layoutforcomment').modal('show').find('.modal-content').load($('#addComments').attr('href'));
+            });
+            $('.check-index-for-reply').each(function (i) {
+                $("a[rel='8']").eq(i).click(function () {
+                    $('#layoutforreply').modal('show').find('.modal-content').load($("a[rel='8']").eq(i).attr('href'));
+                });
+            });
+            $("a[rel='12']").click(function () {
+                $('#deleteModal').modal('show').find('.modal-content').load($("a[rel='12']").attr('href'));
+            });
+            $('.index-check-for-comments').each(function (i) {
+                $("a[rel='13']").eq(i).click(function () {
+                $('#deleteModal').modal('show').find('.modal-content').load($("a[rel='13']").eq(i).attr('href'));
+            });
+            });
+        });
+    </script>
+    <script>
+        $(function () {
+            $('.post-display').each(function (i) {
+                $('.post-pic').eq(i).on('click', function () {
+                    $('#displayModal').modal('show').find('.modal-content').load($('.post-pic-display-link').eq(i).attr('href'));
+                });
+            });
+        });
+    </script>
+    <script>
+        $(function () {
+            $('.check-for-post-comment').each(function (i) {
+                $('.mchang').eq(i).css('margin-left', function (num) {
+                    num = $('.level_num').eq(i).text()  ;
+                    return num * 30;
+                });
+                $('.check-for-post-comment').eq(i).css('border-top-width', function (num) {
+                    num = parseInt($('.level_num').eq(i).text());
+                    if(num === 0){
+                        return num + 1;
+                    }
+                    else {
+                        return 0;
+                    }
+                });
+                $('.i-size-change').removeClass('i-size-change');
+            });
+        });
+     </script>
+     <script>
+         $('.dropdown-toggle').dropdown()
+     </script>
+    <script>
+         $(function(){
+             $("a.like-link-home").click(function(e){
+              e.preventDefault();
+              var targetUrl =  $("a.like-link-home").attr('rel');
+              $.ajax({
+                    url: targetUrl,
+                    type: "GET",
+                }).done(function (data) {
+                    $('.i-unlike').text(data.error);
+                    $('a.like-link-home').addClass('hide-for-like');
+                    $('a.unlike-link-home').removeClass('hide-for-like');
+                });
+             });
+             $("a.unlike-link-home").click(function(e){
+              e.preventDefault();
+              var targetUrl2 = $('a.unlike-link-home').attr('rel');
+              $.ajax({
+                    url: targetUrl2,
+                    type: "GET",
+              }).done(function (data) {
+                    $('a.unlike-link-home').addClass('hide-for-like');
+                    $('a.like-link-home').removeClass('hide-for-like');
+                    $('.i-unlike').text(data.name);
+                });
+             });
+         });
+    </script>
+{% endblock content %}

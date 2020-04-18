@@ -1,0 +1,144 @@
+<div class="content-section new-post-background">
+
+        <form method="POST" id="post-form" action="{{ url_for(test1)}}" enctype="multipart/form-data" >
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group" style="margin-bottom: 0; margin-top: 10px;">
+                <legend class="mb-4 legend-style" >{{ legend }}</legend>
+                <div class="form-group">
+                    {{ form.title.label(class="form-control-label label-control new-post-label-color ") }}
+                    {% if form.title.errors %}
+                        {{ form.title(class="form-control form-control-lg is-invalid new-post-form-color-control") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.title.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.title(class="form-control form-control-lg form-control-change new-post-form-color-control", id="p-title") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.content.label(class="form-control-label label-control new-post-label-color") }}
+                    {% if form.content.errors %}
+                        {{ form.content(class="form-control form-control-lg is-invalid new-post-form-color-control") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.content.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.content(class="form-control form-control-lg new-post-form-color-control", id="p-content", rows='3') }}
+                    {% endif %}
+                </div>
+                <div id="new-post-image-preview">
+                </div>
+                <div>
+                    {{ form.post_picture(style='display: none', id='new-post-picture')}}
+                </div>
+            </fieldset>
+            <div class="space-control">
+                <a class="post-picture-trigger" href="#"><i class="far fa-images i-style" id="img-upload-icon"></i></a>
+                <div class="emo-btn" id="emo-btn" title="Use the TAB key to insert emoji faster">
+                    <div class="emo-btn-open" id="emo-btn-open"></div>
+                    <div class="emo-btn-close" id="emo-btn-close"></div>
+                </div>
+            </div>
+
+            <div class="form-group" style="display: flex; justify-content: flex-end;">
+                 {{ form.submit(class="new-post-button")}}
+            </div>
+        </form>
+</div>
+<script>
+    $('.post-picture-trigger').click(function () {
+        $('#new-post-picture').click();
+    });
+</script>
+<script>
+    $(function() {
+        $('#new-post-picture').on('change', function() {
+          //Get count of selected files
+          var countFiles = $(this)[0].files.length;
+          var imgPath = $(this)[0].value;
+          var extn = imgPath.substring(imgPath.lastIndexOf('.') + 1).toLowerCase();
+          var image_holder = $("#new-post-image-preview");
+          image_holder.empty();
+          if (extn === "gif" || extn === "png" || extn === "jpg" || extn === "jpeg") {
+            if (typeof(FileReader) != "undefined") {
+              //loop for each file selected for uploaded.
+              for (var i = 0; i < countFiles; i++)
+              {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                  $("<img />", {
+                    "src": e.target.result,
+                    "class": "post-pic-preview"
+                  }).appendTo(image_holder);
+                };
+                image_holder.show();
+                reader.readAsDataURL($(this)[0].files[i]);
+              }
+            } else {
+              alert("This browser does not support FileReader.");
+            }
+          } else {
+            alert("Pls select only images");
+          }
+        });
+      });
+</script>
+<script>
+    $(function() {
+        $('form').on('submit',function(e) {
+            e.preventDefault();
+            var form_data = new FormData($('#post-form')[0]);
+             var objArr=[];
+            objArr.push({
+                    p_title: $('#p-title').val(),
+                    p_content: $('#p-content').val(),
+
+                });
+            form_data.append('objArr', JSON.stringify(objArr));
+            for(var value of form_data.values()){
+                console.log(value)
+            }
+            $.ajax({
+                type: 'POST',
+                url: '{{ url_for('new_post') }}',
+                data: form_data,
+                contentType: false,
+                processData: false,
+                success: function(data) {
+                        window.location.href = '/home'
+                },
+            });
+        });
+    });
+</script>
+<script>
+    $(function () {
+        $('#p-content').emojioneArea({
+            pickerPosition: "right",
+            filtersPosition: "bottom",
+            search:false,
+            tones:false
+        });
+    })
+</script>
+<script>
+    $(function () {
+        $('#emo-btn-close').hide();
+        $('#emo-btn-open').click( function () {
+            console.log('2');
+            $('.emojionearea-button-open').click();
+             $('#emo-btn-close').show();
+            $(this).parent('div').addClass("active");
+        });
+
+        $('#emo-btn-close').on('click', function () {
+            $('.emojionearea-button-close').click();
+            $(this).parent('div').removeClass("active");
+             $('#emo-btn-close').hide();
+        })
+    });
+</script>

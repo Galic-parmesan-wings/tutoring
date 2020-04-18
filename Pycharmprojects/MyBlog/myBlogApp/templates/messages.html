@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% for post in messages %}
+            <article class="media content-section border-width-control index-check home-index-check art-link" >
+                <a class="mr-1"  href="{{ url_for('user_posts', username=post.author.username) }}">
+                    <img class="rounded-circle article-img" src="{{ url_for('static', filename = 'profile/' + post.author.image_file) }}">
+                </a>
+                <div class="media-body">
+                    <div class="article-metadata space-control">
+                        <a class="mr-2" style="font-weight: 500;" href="{{ url_for('user_posts', username=post.author.username) }}">{{ post.author.username }}</a>
+                        <small class=" small-margin-control">{{ post.timestamp.strftime('%Y-%m-%d %T') }}</small>
+                        <div class="dropdown">
+                             <a class="comment-color dropdown-toggle toggle-remove", id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"><i class="fas fa-ellipsis-v immune-click add-padding"></i></a>
+                            <div class="dropdown-style dropdown-menu dropdown-menu-right DD-control" aria-labelledby="navbarDropdownMenuLink2">
+                                <a class="dropdown-item dropdown-padding-control immune-click" id="deletelink" data-toggle="modal" data-target="#deleteModal" rel="11" href="#"><i class="far fa-trash-alt i-padding-control immune-click"></i>Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="post-link" href="{{ url_for('post', post_id = post.id) }}" style="display: none"></a>
+                    <span class="article-content">{{ post.body }}</span>
+                    <div class="post-picture-container immune-click">
+                    {% if post.post_picture %}
+                        <img class="post-pic-margin immune-click post-pic" src=" {{ url_for('static', filename = 'post_pictures/' + post.post_picture) }}" alt="profile image">
+                        <a class="post-pic-display-link" style="display: none" href="{{ url_for('post_picture_display', post_id = post.id) }}"></a>
+                    {% endif %}
+                    </div>
+                </div>
+            </article>
+    {% endfor %}
+    {% if messages|length > 5 %}
+        <nav aria-label="...">
+            <ul class="pager">
+                <li class="previous{% if not prev_url %} disabled{% endif %}">
+                    <a href="{{ prev_url or '#' }}">
+                        <span aria-hidden="true">&larr;</span>Newer messages
+                    </a>
+                </li>
+                <li class="next{% if not next_url %} disabled{% endif %}">
+                    <a href="{{ next_url or '#' }}">
+                        Older messages <span aria-hidden="true">&rarr;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    {% endif %}
+    <script>
+        $(function () {
+            $('.dropdown-toggle').dropdown();
+        });
+    </script>
+{% endblock %}

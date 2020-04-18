@@ -1,0 +1,37 @@
+
+    {% if num > 0 %}
+        {% for following in followings %}
+                <div class="content-section iterate-loop class-for-check border-w-0" >
+                    <div class="media">
+                    <a class="mr-1" href="{{ url_for('user_posts', username=following.username) }}">
+                        <img class="rounded-circle article-img" src="{{ url_for('static', filename='profile/' + following.image_file) }}"></a>
+                        <div class="media-body">
+                            <div style=" justify-content: space-between; margin-left: 0" class="row">
+                                <a class="mr-1" style="text-decoration: none;" href="{{ url_for('user_posts', username=following.username) }}">
+                                <h4 class="account-heading heading-margin-control" id="test2">{{ following.username }}</h4>
+                                </a>
+                                <div id="a-anchor">
+                                     {% if user == current_user %}
+                                            <a  class="btn btn-profile following-btn-position follow-anchor" id="unfollow" rel="9" href="{{ url_for('unfollow', username=following.username) }}">Unfollow</a>
+
+                                            <a class="btn btn-profile following-btn-position follow-anchor" id="followss" rel="7" href="{{ url_for('follow', username=following.username) }}">Follow</a>
+                                      {% endif %}
+                                </div>
+                            </div>
+                            {% if following.about_me %}<p class="following-mr-control">{{ following.about_me }}</p>{% endif %}
+                        </div>
+                    </div>
+                </div>
+        {% endfor %}
+    {% else %}
+        <div class="content-section">
+            <div class="media">
+                <div class="media-body">
+                    <h5>You aren’t following anyone yet</h5>
+                      <p>When you do, they’ll be listed here and you’ll see their Tweets in your timeline.</p>
+                </div>
+            </div>
+        </div>
+
+    {% endif %}
+

@@ -1,0 +1,12 @@
+<div class="modal-header delete-header">
+  <h5 class="modal-title new-post-label-color" id="deleteModalLabel">Delete Post?</h5>
+  <button type="button" style="display: none" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-footer delete-footer">
+  <button type="button" class="new-post-button" data-dismiss="modal">Close</button>
+  <form action="{{ url_for('delete_post', post_id=post.id) }}" method="POST">
+    <input class="delete-btn-color new-post-button" type="submit" value="Delete">
+  </form>
+</div>

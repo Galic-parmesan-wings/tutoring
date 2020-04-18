@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+
+    <!--pure Bootstrap -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.2/croppie.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.4.1/emojionearea.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+    <!-- Material Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.2/croppie.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/regular.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/brands.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.4.1/emojionearea.min.css" rel="stylesheet">
+    <!--custom-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'temp212.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'nav82.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'account208.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'btn-style10.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'search3.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'envelop5.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <header>
+    {% include 'navbar.html' %}
+    </header>
+    <div id="particles-js">
+    <main role="main" class="container bigger-container" >
+      <h3 id="search_result_label" style="margin-bottom: 1.5rem"></h3>
+      <div class="row">
+        <div class="col-lg-8">
+       {% block content %}{% endblock %}
+        </div>
+        <div class="col-lg-4">
+            <div class="row">
+                <div class="content-section border-width-control left-mar-base padding-search">
+                  <h3>Search</h3>
+                  <div class="form-group has-search">
+                    <span class="fa fa-search form-control-feedback"></span>
+                    {% if g.search_form %}
+                      <form class="navbar-form navbar-left" method="get" action="{{ url_for('search') }}">
+                        <div class="form-group">
+                            {{ g.search_form.q(size=20, class='form-control search-form form-control-change', placeholder=g.search_form.q.label.text) }}
+                        </div>
+                     </form>
+                    {% endif %}
+                  </div>
+                </div>
+                <div class="content-section border-width-control left-mar-base padding-archives">
+                    <h3>Archives</h3>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item prior-list-padding-control">2019</li>
+                        <ul class="list-group list-group-flush list-margin">
+                            <li class="list-group-item secondary-list-padding-control">March</li>
+                            <li class="list-group-item secondary-list-padding-control">February</li>
+                            <li class="list-group-item secondary-list-padding-control">January</li>
+                        </ul>
+                      <li class="list-group-item prior-list-padding-control">2018</li>
+                         <ul class="list-group list-group-flush list-margin ">
+                            <li class="list-group-item secondary-list-padding-control">March</li>
+                            <li class="list-group-item secondary-list-padding-control">February</li>
+                            <li class="list-group-item secondary-list-padding-control">January</li>
+                        </ul>
+                    </ul>
+                </div>
+            </div>
+        </div>
+      </div>
+    </main>
+    </div>
+<script>
+    $(function () {
+        $('.index-check').last().addClass('bottom-margin-changes');
+    });
+</script>
+<script>
+    $(function () {
+        if(window.location.pathname === '/home'){
+            $('#exploreLink').removeClass('page-on');
+            $('#homeLink').addClass('page-on');
+
+        }
+        else if (window.location.pathname === '/explore'){
+           $('#homeLink').removeClass('page-on');
+           $('#exploreLink').addClass('page-on');
+        }
+        else if (window.location.pathname === '{{ url_for('search') }}'){
+           $('#search_result_label').text('Search result')
+        }
+        else if(window.location.pathname === '{{ url_for('messages') }}'){
+           $('#search_result_label').text('Messages')
+        }
+    });
+</script>
+<script>
+    $('.modal').on('show.bs.modal', function (e) {
+        $('body').css('padding-right', '0!important');
+    });
+</script>
+<script>
+    particlesJS.load('particles-js', '../static/json/particless.json', function() {
+        console.log('callback - particles.js config loaded');
+    });
+</script>
+</body>
+</html>
